@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+/* src/index.css */
 
-body {
-    background-color: #d1e7ff; /* Set a consistent background color */
-    margin: 0; /* Reset default margin */
-}
+
