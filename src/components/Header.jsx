@@ -9,8 +9,10 @@ const Header = () => {
                     <span className="text-white">Welcome to</span>  <span className="text-yellow-300">SwiftMail</span> {/* Made "Welcome" white */}
                 </h1>
                 <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-                    <span className='text-white'>Experience lightning-fast email management with our AI-powered tools designed for busy professionals.</span>
-                </p>
+                    <span className='text-white text-4xl'>Create and send professional emails in less than 2 minutes <br></br>
+                    and it works in the <span className='font-bold '>browser</span>.</span>
+                </p><br></br>
+                <p className='text-2xl'>SwiftMail supports models like o1-preview, o1-mini and sonnet 3.5 to reduce your email writing mean time by 15 times. </p>
                 <div className="mt-8">
                     <button className="bg-yellow-300 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">
                         Get Started

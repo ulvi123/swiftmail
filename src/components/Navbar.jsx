@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="container mx-auto p-5 flex justify-between items-center">
-                <Link to="/" className="text-3xl font-bold text-blue-600 hover:text-blue-800 transition duration-300">
+                <Link to="/" className="text-3xl font-bold text-yellow-600 hover:text-blue-800 transition duration-300">
                     SwiftMail
                 </Link>
                 <div className="hidden md:flex space-x-8 relative">
@@ -25,7 +25,7 @@ const Navbar = () => {
                             onClick={toggleDropdown} 
                             className="flex items-center text-lg text-gray-800 hover:text-blue-600 focus:outline-none"
                         >
-                            Products
+                            Tools
                             <span className={`ml-1 transform transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}>
                                 ▼
                             </span>

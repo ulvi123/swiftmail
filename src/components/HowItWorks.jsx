@@ -1,42 +1,33 @@
 import React from 'react';
-import { FaRegCheckCircle, FaRocket, FaEnvelopeOpenText } from 'react-icons/fa'; // Importing icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus, faEnvelopeOpenText, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 const HowItWorks = () => {
     return (
-        <section className="py-20 bg-[#d1e7ff]"> {/* Change background color to match the app */}
+        <section className="py-20">
             <div className="container mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-6">How SwiftMail Works</h2>
-                <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto mb-12">
-                    SwiftMail uses advanced AI technology to streamline your email management process. 
-                    Here’s how it works:
-                </p>
-                <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <div className="text-blue-500 text-4xl mb-4">
-                            <FaRegCheckCircle />
-                        </div>
-                        <h3 className="text-xl font-semibold">Smart Categorization</h3>
-                        <p className="mt-2 text-gray-600">
-                            SwiftMail automatically categorizes your emails, making it easy to find what you need.
-                        </p>
+                <h2 className="text-4xl font-bold mb-10">How It Works</h2>
+                <p className="mb-8 text-lg text-gray-600">Experience seamless email management with our intuitive AI-powered platform.</p>
+                <div className="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8">
+                    {/* Step 1 */}
+                    <div className="bg-white shadow-lg rounded-lg p-8 max-w-xs transition-transform transform hover:scale-105 duration-300">
+                        <FontAwesomeIcon icon={faUserPlus} className="text-4xl text-gray-500 mb-4" />
+                        <h3 className="text-2xl font-bold mb-2">Step 1: Sign Up</h3>
+                        <p className="text-gray-600">Create your account in just a few minutes and start managing your emails effortlessly.</p>
                     </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <div className="text-blue-500 text-4xl mb-4">
-                            <FaRocket />
-                        </div>
-                        <h3 className="text-xl font-semibold">AI-Powered Responses</h3>
-                        <p className="mt-2 text-gray-600">
-                            Generate quick responses with our AI suggestions, saving you time and effort.
-                        </p>
+
+                    {/* Step 2 */}
+                    <div className="bg-white shadow-lg rounded-lg p-8 max-w-xs transition-transform transform hover:scale-105 duration-300">
+                        <FontAwesomeIcon icon={faEnvelopeOpenText} className="text-4xl text-gray-500 mb-4" />
+                        <h3 className="text-2xl font-bold mb-2">Step 2: Connect Your Email</h3>
+                        <p className="text-gray-600">Easily connect your email accounts to our platform for seamless integration.</p>
                     </div>
-                    <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-                        <div className="text-blue-500 text-4xl mb-4">
-                            <FaEnvelopeOpenText />
-                        </div>
-                        <h3 className="text-xl font-semibold">Error Checking</h3>
-                        <p className="mt-2 text-gray-600">
-                            Ensure your emails are error-free with our built-in checking tools.
-                        </p>
+
+                    {/* Step 3 */}
+                    <div className="bg-white shadow-lg rounded-lg p-8 max-w-xs transition-transform transform hover:scale-105 duration-300">
+                        <FontAwesomeIcon icon={faRocket} className="text-4xl text-gray-500 mb-4" />
+                        <h3 className="text-2xl font-bold mb-2">Step 3: Enjoy AI Features</h3>
+                        <p className="text-gray-600">Leverage our AI tools to sort, prioritize, and respond to your emails efficiently.</p>
                     </div>
                 </div>
             </div>
