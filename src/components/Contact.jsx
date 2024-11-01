@@ -1,140 +1,160 @@
-// ai-email-tool/src/components/ContactPage.jsx
 import React from 'react';
-import { Container, Typography, Box, TextField, Button, Grid, Paper } from '@mui/material';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 
-// Import marker icon images
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-// Fix for marker icon issue
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: markerIcon2x,
-    iconUrl: markerIcon,
-    shadowUrl: markerShadow,
-});
-
-const ContactPage = () => {
+const Contact = () => {
     return (
-        <Container maxWidth="lg" sx={{ py: 5 }}>
-            <Typography variant="h2" align="center" gutterBottom sx={{ color: '#333' }}>
-                Get in Touch
-            </Typography>
-            <Typography variant="h5" align="center" paragraph sx={{ color: '#555' }}>
-                We would love to hear from you! Please fill out the form below or reach out to us directly.
-            </Typography>
+        <div className="min-h-screen pt-20 pb-16 bg-gradient-to-b from-gray-50/50 to-white">
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Header */}
+                <div className="text-center max-w-4xl mx-auto mb-16">
+                    <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium
+                        bg-gradient-to-r from-gray-50 to-gray-100 
+                        border border-gray-200 rounded-full">
+                        Get in Touch
+                    </span>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6
+                        bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
+                        bg-clip-text text-transparent">
+                        We'd Love to Hear From You
+                    </h1>
+                    <p className="text-xl text-gray-600">
+                        Have questions about our AI email assistant? We're here to help.
+                    </p>
+                </div>
 
-            <Grid container spacing={4} sx={{ mt: 4 }}>
-                {/* Contact Form */}
-                <Grid item xs={12} md={6}>
-                    <Paper 
-                        elevation={3} 
-                        sx={{ 
-                            padding: 3, 
-                            borderRadius: '16px', // Increased border radius
-                            transition: '0.3s', // Animation for hover effect
-                            '&:hover': {
-                                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)', // Shadow on hover
-                                transform: 'scale(1.02)', // Slight scale effect on hover
+                {/* Main Content */}
+                <div className="grid md:grid-cols-2 gap-10">
+                    {/* Contact Form */}
+                    <div className="group relative p-8 rounded-2xl
+                        bg-white backdrop-blur-lg
+                        border border-gray-100
+                        shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                        hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
+                        transition-all duration-500">
+                        
+                        {/* Card Background */}
+                        <div className="absolute inset-0 rounded-2xl opacity-40 transition-opacity duration-500
+                            bg-gradient-to-br from-gray-100 via-white to-gray-50
+                            group-hover:from-gray-200 group-hover:via-gray-100 group-hover:to-gray-50" />
+                        
+                        {/* Form Content */}
+                        <div className="relative z-10 space-y-6">
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700">First Name</label>
+                                    <input 
+                                        type="text"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
+                                            focus:ring-2 focus:ring-black/5 focus:border-gray-300
+                                            transition-all duration-300
+                                            hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
+                                        placeholder="John"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700">Last Name</label>
+                                    <input 
+                                        type="text"
+                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
+                                            focus:ring-2 focus:ring-black/5 focus:border-gray-300
+                                            transition-all duration-300
+                                            hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
+                                        placeholder="Doe"
+                                    />
+                                </div>
+                            </div>
+                            
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">Email</label>
+                                <input 
+                                    type="email"
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200
+                                        focus:ring-2 focus:ring-black/5 focus:border-gray-300
+                                        transition-all duration-300
+                                        hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
+                                    placeholder="you@example.com"
+                                />
+                            </div>
+                            
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">Message</label>
+                                <textarea 
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200
+                                        focus:ring-2 focus:ring-black/5 focus:border-gray-300
+                                        transition-all duration-300
+                                        hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]
+                                        h-32 resize-none"
+                                    placeholder="How can we help you?"
+                                />
+                            </div>
+                            
+                            <button className="w-full py-3 px-6 rounded-xl font-medium text-white
+                                bg-black hover:bg-gray-900
+                                transition-all duration-300 ease-in-out
+                                hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+                                active:scale-[0.98]">
+                                Send Message
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Contact Information */}
+                    <div className="space-y-6">
+                        {[
+                            {
+                                title: "Email Us",
+                                content: "support@aiemail.com",
+                                icon: "✉️",
+                                gradient: "from-gray-100 to-gray-50",
+                                hoverGradient: "group-hover:from-gray-200 group-hover:to-gray-100"
                             },
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom>
-                            Contact Form
-                        </Typography>
-                        <TextField
-                            fullWidth
-                            label="Name"
-                            variant="outlined"
-                            margin="normal"
-                        />
-                        <TextField
-                            fullWidth
-                            label="Email"
-                            variant="outlined"
-                            margin="normal"
-                        />
-                        <TextField
-                            fullWidth
-                            label="Message"
-                            variant="outlined"
-                            margin="normal"
-                            multiline
-                            rows={4}
-                        />
-                        <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-                            Send Message
-                        </Button>
-                    </Paper>
-                </Grid>
-
-                {/* Location Map */}
-                <Grid item xs={12} md={6}>
-                    <Paper 
-                        elevation={3} 
-                        sx={{ 
-                            height: '100%', 
-                            borderRadius: '16px', // Increased border radius
-                            transition: '0.3s', // Animation for hover effect
-                            '&:hover': {
-                                boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)', // Shadow on hover
-                                transform: 'scale(1.02)', // Slight scale effect on hover
+                            {
+                                title: "Call Us",
+                                content: "+1 (555) 123-4567",
+                                icon: "📞",
+                                gradient: "from-gray-50 to-white",
+                                hoverGradient: "group-hover:from-gray-100 group-hover:to-gray-50"
                             },
-                        }}
-                    >
-                        <Typography variant="h5" gutterBottom sx={{ padding: 2 }}>
-                            Our Location
-                        </Typography>
-                        <MapContainer center={[58.5953, 25.0136]} zoom={7} style={{ height: '300px', width: '100%' }}>
-                            <TileLayer
-                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            />
-                            <Marker position={[58.5953, 25.0136]}>
-                                <Popup>
-                                    Our Office in Estonia
-                                </Popup>
-                            </Marker>
-                        </MapContainer>
-                    </Paper>
-                </Grid>
-            </Grid>
-
-            {/* Additional Contact Information */}
-            <Box sx={{ mt: 5, textAlign: 'center' }}>
-                <Typography variant="h5" gutterBottom>
-                    Contact Information
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#555' }}>
-                    Phone: <a href="tel:+3721234567">+372 123 4567</a>
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#555' }}>
-                    Email: <a href="mailto:info@yourcompany.com">info@yourcompany.com</a>
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#555' }}>
-                    Address: Estonia
-                </Typography>
-                <Typography variant="body1" sx={{ color: '#555' }}>
-                    Follow us on social media:
-                </Typography>
-                <Box sx={{ mt: 1 }}>
-                    <Button variant="outlined" color="primary" sx={{ mx: 1 }}>
-                        Facebook
-                    </Button>
-                    <Button variant="outlined" color="primary" sx={{ mx: 1 }}>
-                        Twitter
-                    </Button>
-                    <Button variant="outlined" color="primary" sx={{ mx: 1 }}>
-                        LinkedIn
-                    </Button>
-                </Box>
-            </Box>
-        </Container>
+                            {
+                                title: "Visit Us",
+                                content: "123 AI Street, Tech Valley, CA 94025",
+                                icon: "📍",
+                                gradient: "from-white to-gray-50",
+                                hoverGradient: "group-hover:from-gray-50 group-hover:to-white"
+                            }
+                        ].map((item, index) => (
+                            <div key={index} 
+                                className="group relative p-6 rounded-xl
+                                    bg-white backdrop-blur-lg
+                                    border border-gray-100
+                                    shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                                    hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
+                                    transition-all duration-500">
+                                
+                                {/* Card Background */}
+                                <div className={`absolute inset-0 rounded-xl opacity-40 transition-opacity duration-500
+                                    bg-gradient-to-br ${item.gradient} ${item.hoverGradient}`} />
+                                
+                                {/* Content */}
+                                <div className="relative z-10 flex items-center">
+                                    <div className="w-12 h-12 
+                                        flex items-center justify-center text-2xl
+                                        bg-white rounded-lg shadow-sm border border-gray-100
+                                        group-hover:scale-110 group-hover:rotate-6
+                                        transition-transform duration-500">
+                                        {item.icon}
+                                    </div>
+                                    <div className="ml-4">
+                                        <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                                        <p className="text-gray-600">{item.content}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 
-export default ContactPage;
+export default Contact;

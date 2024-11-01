@@ -1,235 +1,181 @@
-// ai-email-tool/src/components/AboutUs.jsx
 import React from 'react';
-import { Container, Typography, Box, Button, Grid, Avatar } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const theme = createTheme({
-    typography: {
-        fontFamily: 'Roboto, sans-serif',
-        h2: {
-            fontSize: '2.5rem', // Increased size for h2
-        },
-        h4: {
-            fontSize: '2rem', // Increased size for h4
-        },
-        h5: {
-            fontSize: '1.5rem', // Increased size for h5
-        },
-        body1: {
-            fontSize: '1.125rem', // Increased size for body1
-        },
-        body2: {
-            fontSize: '1rem', // Increased size for body2
-        },
-    },
-});
+const About = () => {
+    const stats = [
+        { number: "50K+", label: "Active Users" },
+        { number: "1M+", label: "Emails Improved" },
+        { number: "98%", label: "Satisfaction Rate" },
+        { number: "24/7", label: "AI Support" }
+    ];
 
-const AboutUsPage = () => {
+    const values = [
+        {
+            title: "Innovation First",
+            description: "We're constantly pushing the boundaries of AI technology to improve email communication.",
+            icon: "💡",
+            gradient: "from-blue-100 via-indigo-100 to-purple-100",
+            hoverGradient: "group-hover:from-blue-200 group-hover:via-indigo-200 group-hover:to-purple-200"
+        },
+        {
+            title: "User Privacy",
+            description: "Your data security and privacy are our top priorities, with enterprise-grade encryption.",
+            icon: "🛡️",
+            gradient: "from-rose-100 via-pink-100 to-purple-100",
+            hoverGradient: "group-hover:from-rose-200 group-hover:via-pink-200 group-hover:to-purple-200"
+        },
+        {
+            title: "Global Impact",
+            description: "We're helping professionals worldwide communicate more effectively and confidently.",
+            icon: "🌍",
+            gradient: "from-amber-100 via-orange-100 to-rose-100",
+            hoverGradient: "group-hover:from-amber-200 group-hover:via-orange-200 group-hover:to-rose-200"
+        }
+    ];
+
+    const team = [
+        {
+            name: "Sarah Johnson",
+            role: "CEO & Co-founder",
+            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
+        },
+        {
+            name: "Michael Chen",
+            role: "CTO & Co-founder",
+            image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
+        },
+        {
+            name: "Emma Davis",
+            role: "Head of AI",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80"
+        }
+    ];
+
     return (
-        <ThemeProvider theme={theme}>
-            <Container maxWidth="lg" sx={{ py: 5, backgroundColor: 'transparent' }}>
-                {/* Header Section */}
-                <Box sx={{ textAlign: 'center', mb: 5 }}>
-                    <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#333' }}>
-                        About Us
-                    </Typography>
-                    <Typography variant="h5" color="text.secondary" paragraph>
-                        At <strong>[Your Company Name]</strong>, we are dedicated to transforming the way businesses manage their email communications through innovative AI technology.
-                    </Typography>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        size="large" 
-                        href="#team" 
-                        sx={{ boxShadow: 3, transition: '0.3s', '&:hover': { boxShadow: 6 } }}
-                    >
-                        Meet Our Team
-                    </Button>
-                </Box>
+        <div className="min-h-screen pt-20 pb-16">
+            {/* Hero Section */}
+            <div className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-8
+                            bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
+                            bg-clip-text text-transparent">
+                            Transforming Email Communication
+                            <br />
+                            Through AI Innovation
+                        </h1>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
+                            We're on a mission to help professionals worldwide communicate more effectively,
+                            build stronger relationships, and achieve better results through their emails.
+                        </p>
 
-                {/* Mission Statement */}
-                <Box sx={{ mb: 5 }}>
-                    <Typography variant="h4" align="center" gutterBottom sx={{ color: '#333' }}>
-                        Our Mission
-                    </Typography>
-                    <Typography variant="body1" align="center" paragraph sx={{ lineHeight: 1.6, color: '#555' }}>
-                        Our mission is to empower businesses to achieve greater productivity and efficiency in their email communications. 
-                        We strive to provide innovative solutions that simplify email management and enhance collaboration.
-                    </Typography>
-                </Box>
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                            {stats.map((stat, index) => (
+                                <div key={index} className="p-6 bg-white rounded-xl border border-gray-100
+                                    shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
+                                    transition-all duration-300">
+                                    <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 
+                                        bg-clip-text text-transparent">
+                                        {stat.number}
+                                    </div>
+                                    <div className="text-gray-600 mt-1">{stat.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                {/* The Story Section */}
-                <Grid container spacing={4} alignItems="center">
-                    <Grid item xs={12} md={6}>
-                        <Box sx={{ textAlign: 'center' }}>
+            {/* Our Story Section */}
+            <div className="max-w-7xl mx-auto px-6 py-24">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
+                        <h2 className="text-3xl font-bold text-gray-900">Our Story</h2>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Founded in 2023, AI Email emerged from a simple observation: professionals spend 
+                            too much time crafting and perfecting their emails. We believed AI could help 
+                            make this process more efficient while improving communication quality.
+                        </p>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Today, we're proud to serve thousands of professionals worldwide, helping them 
+                            communicate more effectively and confidently through our AI-powered platform.
+                        </p>
+                    </div>
+                    <div className="relative">
+                        <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden">
                             <img 
-                                src="https://via.placeholder.com/300" // Replace with your caricature image URL
-                                alt="Caricature"
-                                style={{ width: '100%', borderRadius: '8px' }}
+                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                alt="Team collaboration" 
+                                className="object-cover w-full h-full"
                             />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <Box sx={{ mb: 5 }}>
-                            <Typography variant="h4" align="left" gutterBottom sx={{ color: '#333' }}>
-                                The Story Behind Our Tools
-                            </Typography>
-                            <Typography variant="body1" align="left" paragraph sx={{ lineHeight: 1.6, color: '#555' }}>
-                                As we navigate the complexities of modern work, we often find ourselves juggling multiple tools and platforms. 
-                                Our goal is to streamline this experience, bringing everything you need into one cohesive workspace.
-                            </Typography>
-                            <Typography variant="body1" align="left" paragraph sx={{ lineHeight: 1.6, color: '#555' }}>
-                                Inspired by the pioneers of computing, we aim to create a platform that not only enhances productivity but also fosters creativity and collaboration.
-                            </Typography>
-                        </Box>
-                    </Grid>
-                </Grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                {/* Features Section */}
-                <Box sx={{ my: 4 }}>
-                    <Typography variant="h4" align="center" gutterBottom sx={{ color: '#333' }}>
-                        Why Choose Us?
-                    </Typography>
-                    <Grid container spacing={4} justifyContent="center">
-                        {/* Feature 1 */}
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Box sx={{ padding: 4, textAlign: 'center', boxShadow: 1, borderRadius: 2, height: '100%' }}>
-                                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                                    Proven Solutions
-                                </Typography>
-                                <Typography variant="body1" color="text.secondary">
-                                    Our tools are backed by extensive research and user feedback, ensuring effectiveness and reliability.
-                                </Typography>
-                            </Box>
-                        </Grid>
+            {/* Our Values Section */}
+            <div className="bg-gray-50 py-24">
+                <div className="max-w-7xl mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {values.map((value, index) => (
+                            <div key={index} className="group relative p-8 rounded-2xl
+                                bg-white backdrop-blur-lg
+                                border border-gray-100
+                                shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                                hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
+                                transition-all duration-500">
+                                
+                                {/* Card Background */}
+                                <div className={`absolute inset-0 rounded-2xl opacity-40 transition-opacity duration-500
+                                    bg-gradient-to-br ${value.gradient} ${value.hoverGradient}`} />
+                                
+                                <div className="relative z-10">
+                                    <div className="w-16 h-16 mb-6
+                                        flex items-center justify-center text-3xl
+                                        bg-white rounded-xl
+                                        shadow-sm border border-gray-100
+                                        group-hover:scale-110 group-hover:rotate-6
+                                        transition-transform duration-500">
+                                        {value.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                                    <p className="text-gray-600">{value.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
 
-                        {/* Feature 2 */}
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Box sx={{ padding: 4, textAlign: 'center', boxShadow: 1, borderRadius: 2, height: '100%' }}>
-                                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                                    Expert Team
-                                </Typography>
-                                <Typography variant="body1" color="text.secondary">
-                                    Our team consists of industry experts dedicated to providing the best email management solutions.
-                                </Typography>
-                            </Box>
-                        </Grid>
-
-                        {/* Feature 3 */}
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Box sx={{ padding: 4, textAlign: 'center', boxShadow: 1, borderRadius: 2, height: '100%' }}>
-                                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                                    Customizable Tools
-                                </Typography>
-                                <Typography variant="body1" color="text.secondary">
-                                    Tailor our solutions to fit your unique needs and preferences for optimal performance.
-                                </Typography>
-                            </Box>
-                        </Grid>
-
-                        {/* Feature 4 */}
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Box sx={{ padding: 4, textAlign: 'center', boxShadow: 1, borderRadius: 2, height: '100%' }}>
-                                <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                                    Customer Satisfaction
-                                </Typography>
-                                <Typography variant="body1" color="text.secondary">
-                                    We prioritize our customers' needs and continuously strive to exceed their expectations.
-                                </Typography>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Box>
-
-                {/* Team Section */}
-                <Box id="team" sx={{ my: 5 }}>
-                    <Typography variant="h4" align="center" gutterBottom sx={{ color: '#333' }}>
-                        Meet Our Team
-                    </Typography>
-                    <Grid container spacing={4} justifyContent="center">
-                        {/* Team Member 1 */}
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Box sx={{ padding: 3, textAlign: 'center', boxShadow: 1, borderRadius: 2 }}>
-                                <Avatar
-                                    alt="John Doe"
-                                    src="https://via.placeholder.com/150"
-                                    sx={{ width: 100, height: 100, margin: '0 auto', mb: 2 }}
+            {/* Team Section */}
+            <div className="max-w-7xl mx-auto px-6 py-24">
+                <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                    {team.map((member, index) => (
+                        <div key={index} className="group relative">
+                            <div className="relative rounded-2xl overflow-hidden
+                                shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                                hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
+                                transition-all duration-500">
+                                <img 
+                                    src={member.image} 
+                                    alt={member.name}
+                                    className="w-full aspect-square object-cover
+                                        group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    John Doe
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    CEO & Founder
-                                </Typography>
-                                <Typography variant="body2" sx={{ mt: 1 }}>
-                                    John is a visionary leader with over 10 years of experience in the tech industry, dedicated to driving innovation.
-                                </Typography>
-                            </Box>
-                        </Grid>
-
-                        {/* Team Member 2 */}
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Box sx={{ padding: 3, textAlign: 'center', boxShadow: 1, borderRadius: 2 }}>
-                                <Avatar
-                                    alt="Jane Smith"
-                                    src="https://via.placeholder.com/150"
-                                    sx={{ width: 100, height: 100, margin: '0 auto', mb: 2 }}
-                                />
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    Jane Smith
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    CTO
-                                </Typography>
-                                <Typography variant="body2" sx={{ mt: 1 }}>
-                                    Jane is a tech enthusiast with a passion for AI and machine learning, leading our development team to new heights.
-                                </Typography>
-                            </Box>
-                        </Grid>
-
-                        {/* Team Member 3 */}
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Box sx={{ padding: 3, textAlign: 'center', boxShadow: 1, borderRadius: 2 }}>
-                                <Avatar
-                                    alt="Alice Johnson"
-                                    src="https://via.placeholder.com/150"
-                                    sx={{ width: 100, height: 100, margin: '0 auto', mb: 2 }}
-                                />
-                                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                                    Alice Johnson
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Marketing Director
-                                </Typography>
-                                <Typography variant="body2" sx={{ mt: 1 }}>
-                                    Alice is a marketing guru with a knack for crafting compelling narratives that resonate with our audience.
-                                </Typography>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Box>
-
-                {/* Call to Action */}
-                <Box sx={{ textAlign: 'center', mt: 5 }}>
-                    <Typography variant="h5" gutterBottom>
-                        Join Us on Our Journey
-                    </Typography>
-                    <Typography variant="body1" paragraph sx={{ lineHeight: 1.6 }}>
-                        We invite you to join us on this exciting journey as we continue to innovate and enhance the way you manage your emails. 
-                        Together, we can achieve more!
-                    </Typography>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        size="large" 
-                        sx={{ boxShadow: 3, transition: '0.3s', '&:hover': { boxShadow: 6 } }}
-                    >
-                        Get Started
-                    </Button>
-                </Box>
-            </Container>
-        </ThemeProvider>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <h3 className="text-xl font-bold">{member.name}</h3>
+                                    <p className="text-white/80">{member.role}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 };
 
-export default AboutUsPage;
+export default About;
