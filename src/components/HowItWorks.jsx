@@ -29,9 +29,9 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20">
             <div className="max-w-7xl mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-16">How It Works</h2>
+                <h2 className="text-4xl font-bold text-center mb-16">Email writing is actually ease</h2>
                 <div className="grid md:grid-cols-3 gap-10">
                     {steps.map((step, index) => (
                         <div key={index} 

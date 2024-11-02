@@ -1,7 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+    });
+
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setError("");
+
+        // Basic validation
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.password) {
+            setError("All fields are required.");
+            return;
+        }
+
+        // Simulate API call
+        // Replace this with your actual API call
+        fakeApiCall(formData)
+            .then(response => {
+                if (response.success) {
+                    setSuccess(true);
+                    setFormData({ firstName: "", lastName: "", email: "", password: "" }); // Reset form
+                } else {
+                    setError(response.message);
+                }
+            })
+            .catch(err => {
+                setError("An error occurred. Please try again.");
+            });
+    };
+
+    // Simulated API call function
+    const fakeApiCall = (data) => {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ success: true });
+            }, 1000);
+        });
+    };
+
     return (
         <div className="min-h-screen pt-20 pb-16 flex items-center justify-center bg-gradient-to-b from-gray-50/50 to-white">
             <div className="w-full max-w-md">
@@ -27,28 +77,36 @@ const SignUp = () => {
                     </div>
 
                     {/* Form */}
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-gray-700">First Name</label>
                                 <input 
                                     type="text"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
                                     className="w-full px-4 py-3 rounded-xl border border-gray-200
                                         focus:ring-2 focus:ring-black/5 focus:border-gray-300
                                         transition-all duration-300
                                         hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
                                     placeholder="John"
+                                    required
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-gray-700">Last Name</label>
                                 <input 
                                     type="text"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
                                     className="w-full px-4 py-3 rounded-xl border border-gray-200
                                         focus:ring-2 focus:ring-black/5 focus:border-gray-300
                                         transition-all duration-300
                                         hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
                                     placeholder="Doe"
+                                    required
                                 />
                             </div>
                         </div>
@@ -57,11 +115,15 @@ const SignUp = () => {
                             <label className="text-sm font-medium text-gray-700">Email</label>
                             <input 
                                 type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-xl border border-gray-200
                                     focus:ring-2 focus:ring-black/5 focus:border-gray-300
                                     transition-all duration-300
                                     hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
                                 placeholder="you@example.com"
+                                required
                             />
                         </div>
 
@@ -69,11 +131,15 @@ const SignUp = () => {
                             <label className="text-sm font-medium text-gray-700">Password</label>
                             <input 
                                 type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-xl border border-gray-200
                                     focus:ring-2 focus:ring-black/5 focus:border-gray-300
                                     transition-all duration-300
                                     hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]"
                                 placeholder="Create a strong password"
+                                required
                             />
                         </div>
 
@@ -83,6 +149,7 @@ const SignUp = () => {
                                 id="terms"
                                 className="w-4 h-4 rounded border-gray-300 text-black 
                                     focus:ring-black/5 transition-colors duration-300"
+                                required
                             />
                             <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
                                 I agree to the{' '}
@@ -107,35 +174,12 @@ const SignUp = () => {
                         </button>
                     </form>
 
-                    {/* Divider */}
-                    <div className="relative my-8">
-                        <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-200"></div>
+                    {/* Error Message */}
+                    {error && (
+                        <div className="mt-4 text-red-600 text-center">
+                            {error}
                         </div>
-                        <div className="relative flex justify-center text-sm">
-                            <span className="px-4 bg-white text-gray-500">Or continue with</span>
-                        </div>
-                    </div>
-
-                    {/* Social Logins */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <button className="flex items-center justify-center px-4 py-3 rounded-xl
-                            border border-gray-200 hover:border-gray-300
-                            transition-all duration-300
-                            hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]">
-                            <img src="https://www.svgrepo.com/show/475656/google-color.svg" 
-                                alt="Google" className="w-5 h-5 mr-2" />
-                            <span className="text-sm font-medium text-gray-700">Google</span>
-                        </button>
-                        <button className="flex items-center justify-center px-4 py-3 rounded-xl
-                            border border-gray-200 hover:border-gray-300
-                            transition-all duration-300
-                            hover:shadow-[0_2px_10px_rgb(0,0,0,0.06)]">
-                            <img src="https://www.svgrepo.com/show/475647/github-color.svg" 
-                                alt="GitHub" className="w-5 h-5 mr-2" />
-                            <span className="text-sm font-medium text-gray-700">GitHub</span>
-                        </button>
-                    </div>
+                    )}
 
                     {/* Sign In Link */}
                     <p className="mt-8 text-center text-sm text-gray-600">

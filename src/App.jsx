@@ -9,14 +9,17 @@ import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import CallToAction from './components/CallToAction';
 import DetailedHowItWorks from './components/DetailedHowItWorks';
+import ProductHowItWorks from "./components/ProductHowItWorks"
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import AIEmailAssistant from './components/AIEmailAssistant';
 
 const Home = () => (
   <>
     <Header />
     <Features />
+    <ProductHowItWorks/>
     <HowItWorks />
     <Pricing />
     <CallToAction />
@@ -37,9 +40,11 @@ const App = () => {
             {/* Individual pages */}
             <Route path="/features" element={<Features />} />
             <Route path="/how-it-works" element={<DetailedHowItWorks />} />
+            <Route path="/how-it-works" element={<ProductHowItWorks />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path='/email-assistant' element={<AIEmailAssistant/>}/>
             
             {/* Auth routes */}
             <Route path="/signin" element={<SignIn />} />
