@@ -17,7 +17,7 @@ const ProductHowItWorks = () => {
         {
             title: "Step 2: Connect Your Email",
             description: "Easily integrate your email accounts with our secure platform. With just a few clicks, you can connect all your email accounts and start enjoying the benefits of our AI-powered assistant.",
-            image: image2
+            image: image4
         },
         {
             title: "Step 3: Start Writing Better",
@@ -27,7 +27,7 @@ const ProductHowItWorks = () => {
         {
             title: "Step 4: Enjoy the Benefits",
             description: "Experience seamless email communication with our advanced features. Enjoy improved productivity and efficiency as you manage your emails with ease and confidence.",
-            image: image4
+            image: image2
         }
     ];
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 
 const DetailedHowItWorks = () => {
     const steps = [
@@ -13,7 +14,7 @@ const DetailedHowItWorks = () => {
                 "Instant account activation",
                 "Secure authentication"
             ],
-          
+
         },
         {
             title: "Connect Your Email",
@@ -26,7 +27,7 @@ const DetailedHowItWorks = () => {
                 "End-to-end encryption",
                 "Quick email sync"
             ],
-            
+
         },
         {
             title: "Start Writing Better",
@@ -39,7 +40,7 @@ const DetailedHowItWorks = () => {
                 "Tone adjustment",
                 "Grammar checking"
             ],
-            
+
         }
     ];
 
@@ -79,7 +80,7 @@ const DetailedHowItWorks = () => {
                                     flex items-center justify-center text-sm font-medium z-10">
                                     {index + 1}
                                 </div>
-                              
+
                             </div>
 
                             {/* Card */}
@@ -90,11 +91,11 @@ const DetailedHowItWorks = () => {
                                 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
                                 transition-all duration-500
                                 h-full">
-                                
+
                                 {/* Card Background */}
                                 <div className={`absolute inset-0 rounded-2xl opacity-40 transition-opacity duration-500
                                     bg-gradient-to-br ${step.gradient} ${step.hoverGradient}`} />
-                                
+
                                 {/* Content */}
                                 <div className="relative z-10">
                                     {/* Icon */}
@@ -110,7 +111,7 @@ const DetailedHowItWorks = () => {
                                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                                         {step.title}
                                     </h3>
-                                    
+
                                     <p className="text-gray-600 mb-6 leading-relaxed">
                                         {step.description}
                                     </p>
@@ -120,10 +121,10 @@ const DetailedHowItWorks = () => {
                                         {step.details.map((detail, i) => (
                                             <li key={i} className="flex items-center text-gray-600 bg-gray-50 
                                                 p-2 rounded-lg group-hover:bg-white/80 transition-colors duration-300">
-                                                <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" 
+                                                <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0"
                                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" 
-                                                        strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                                        strokeWidth={2} d="M5 13l4 4L19 7" />
                                                 </svg>
                                                 <span>{detail}</span>
                                             </li>
@@ -137,21 +138,23 @@ const DetailedHowItWorks = () => {
 
                 {/* Bottom CTA */}
                 <div className="text-center mt-16">
-                    <button className="group px-8 py-3.5 rounded-xl font-medium text-white
+                    <Link to="/signup">
+                        <button className="group px-8 py-3.5 rounded-xl font-medium text-white
                         bg-black hover:bg-gray-900
                         transition-all duration-300 ease-in-out
                         hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                         active:scale-[0.98]">
-                        <span className="flex items-center justify-center">
-                            Get Started Now
-                            <svg className="w-5 h-5 ml-2 transform transition-transform duration-300 
-                                group-hover:translate-x-0.5" 
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                        </span>
-                    </button>
+                            <span className="flex items-center justify-center">
+                                Get Started Now
+                                <svg className="w-5 h-5 ml-2 transform transition-transform duration-300 
+                                group-hover:translate-x-0.5"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </span>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

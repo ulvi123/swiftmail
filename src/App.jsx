@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import AIEmailAssistant from './components/AIEmailAssistant';
+import WatchDemo from './components/WatchDemo';
 
 const Home = () => (
   <>
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path='/email-assistant' element={<AIEmailAssistant/>}/>
+            <Route path="/watch-demo" element={<WatchDemo/>}/>
             
             {/* Auth routes */}
             <Route path="/signin" element={<SignIn />} />

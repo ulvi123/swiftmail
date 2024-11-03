@@ -21,7 +21,7 @@ const Navbar = () => {
             path: "/pdf-chat"
         },
         {
-            name: "AI Writing Helper",
+            name: "Resume polisher",
             description: "Get writing suggestions in real-time",
             icon: "✍️",
             path: "/writing-helper"
@@ -111,18 +111,31 @@ const Navbar = () => {
                                         <Link
                                             key={index}
                                             to={tool.path}
-                                            className="flex items-start p-3 rounded-xl hover:bg-gray-50
+                                            className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50
                                                 transition-colors duration-300 group">
-                                            <span className="w-8 h-8 flex items-center justify-center text-xl
-                                                bg-white rounded-lg shadow-sm border border-gray-100
-                                                group-hover:scale-110 group-hover:rotate-6
-                                                transition-transform duration-500">
-                                                {tool.icon}
-                                            </span>
-                                            <div className="ml-3">
-                                                <p className="text-sm font-medium text-gray-900">{tool.name}</p>
-                                                <p className="text-xs text-gray-500">{tool.description}</p>
+                                            <div className="flex items-center">
+                                                <span className="w-8 h-8 flex items-center justify-center text-xl
+                                                    bg-white rounded-lg shadow-sm border border-gray-100
+                                                    group-hover:scale-110 group-hover:rotate-6
+                                                    transition-transform duration-500">
+                                                    {tool.icon}
+                                                </span>
+                                                <p className="text-sm font-medium text-gray-900 ml-2">{tool.name}</p>
                                             </div>
+                                            {/* Badge for Hot or Coming Soon */}
+                                            <span className={`inline-flex items-center justify-center text-xs font-bold text-white rounded-full 
+                                                ${index === 0 ? 'bg-white' : 'bg-black'} 
+                                                px-2 py-1 shadow-md transform translate-y-[-5px]`}>
+                                                {index === 0 ? (
+                                                    <span className="flex items-center">
+                                                        <span className="text-lg">🔥</span> {/* Flame icon */}
+                                                    </span>
+                                                ) : (
+                                                    <span className="flex items-center">
+                                                        <span className="text-lg">⏳</span> {/* Hourglass icon */}
+                                                    </span>
+                                                )}
+                                            </span>
                                         </Link>
                                     ))}
                                 </div>
@@ -193,10 +206,23 @@ const Navbar = () => {
                                     <Link
                                         key={index}
                                         to={tool.path}
-                                        className="flex items-center space-x-2 text-gray-600 hover:text-gray-900
+                                        className="flex items-center justify-between space-x-2 text-gray-600 hover:text-gray-900
                                             transition-colors duration-300">
                                         <span>{tool.icon}</span>
-                                        <span>{tool.name}</span>
+                                        <p className="text-sm font-medium text-gray-900">{tool.name}</p>
+                                        <span className={`inline-flex items-center justify-center text-xs font-bold text-white rounded-full 
+                                            ${index === 0 ? 'bg-white' : 'bg-black'} 
+                                            px-2 py-1 shadow-md transform translate-y-[-5px]`}>
+                                            {index === 0 ? (
+                                                <span className="flex items-center">
+                                                    <span className="text-lg">🔥</span> {/* Flame icon */}
+                                                </span>
+                                            ) : (
+                                                <span className="flex items-center">
+                                                    <span className="text-lg">⏳</span> {/* Hourglass icon */}
+                                                </span>
+                                            )}
+                                        </span>
                                     </Link>
                                 ))}
                             </div>
