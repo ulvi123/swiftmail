@@ -1,7 +1,16 @@
-import React from 'react';
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Header = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [email, setEmail] = useState('');
+
+    const handleWaitlist = () => {
+        // Implement your waitlist signup logic here
+        console.log('Signed up for waitlist with email:', email);
+        setShowModal(false);
+    };
+
     return (
         <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background Elements */}
@@ -54,16 +63,33 @@ const Header = () => {
                             <div className="absolute inset-0 bg-black transition-transform 
                                 duration-300 group-hover:scale-[1.04]"></div>
                             
-                                <span className="relative z-10 flex items-center justify-center text-lg font-medium">
-                                    Start Writing Better Emails
-                                    <svg className="w-5 h-5 ml-2 transform transition-transform duration-300 
-                                    group-hover:translate-x-1"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                            d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                    </svg>
-                                </span>
+                            <span className="relative z-10 flex items-center justify-center text-lg font-medium">
+                                Start Writing Better Emails
+                                <svg className="w-5 h-5 ml-2 transform transition-transform duration-300 
+                                group-hover:translate-x-1"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </span>
                         </Link>
+
+                        {/* Waitlist Button */}
+                        <button
+                            onClick={() => setShowModal(true)}
+                            className="group relative px-8 py-4 rounded-xl text-white
+                            overflow-hidden transition-all duration-300"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-900 transition-transform 
+                                duration-300 group-hover:scale-[1.04]"></div>
+                            <span className="relative z-10 flex items-center justify-center text-lg font-medium">
+                                Get Waitlisted
+                                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </span>
+                        </button>
 
                         <Link to="/how-it-works" className="group px-8 py-4 rounded-xl text-lg font-medium
                             text-gray-600 hover:text-gray-900
@@ -73,6 +99,39 @@ const Header = () => {
                             See How It Works
                         </Link>
                     </div>
+
+                    {/* Waitlist Modal */}
+                    {showModal && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+                            <div className="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+                                <h2 className="text-2xl font-bold mb-4">Join the Waitlist</h2>
+                                <p className="text-gray-600 mb-6">
+                                    Be the first to experience our beta launch. Enter your email below to secure your spot.
+                                </p>
+                                <input
+                                    type="email"
+                                    className="w-full px-4 py-2 rounded-lg border border-gray-200 mb-4"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={handleWaitlist}
+                                        className="flex-1 bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+                                    >
+                                        Join Waitlist
+                                    </button>
+                                    <button
+                                        onClick={() => setShowModal(false)}
+                                        className="flex-1 bg-gray-100 text-gray-600 px-6 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Stats Section with Fade-in Animation */}
                     <div className="pt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto 
